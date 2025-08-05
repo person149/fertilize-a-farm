@@ -1,14 +1,14 @@
 import pygame, sys
 from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP
 pygame.init()
-
+#from piskel
 pi = pygame.image.load("little-man-1.gif")
 
 
 WIDTH = 1000
 HEIGHT = 800
 
-running = True
+running = 7
 
 class Player():
     def __init__(self):
@@ -42,20 +42,12 @@ back = pygame.Surface((WIDTH, HEIGHT))
 background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
-while running:
+while running==7:
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
 
     window.blit(background, (0, 0))
-
-    # Draw polygon
-
-    # Draw blue triangle
-    # window.blit(pi,(500,200))
-
-    # Draw text
-    
     window.blit(player.image, (player.x, player.y))
     pygame.display.update()
 
