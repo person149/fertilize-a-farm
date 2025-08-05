@@ -61,14 +61,14 @@ while running==7:
                 if not player.facing:
                     player.flip()   
                 player.move = player.speed
-            elif event.key == K_LEFT:
+            elif event.key == K_LEFT and player.x>=-18.0:
                 if  player.facing:
                     player.flip()
                 player.move = -player.speed
         elif event.type == KEYUP:
             if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
                 player.move = 0
-
+                print(player.x)
 pygame.quit()
 sys.exit()
 
