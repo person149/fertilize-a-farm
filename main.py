@@ -1,10 +1,11 @@
 import pygame, sys
-from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP
+from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP 
 pygame.init()
 #from piskel
 pi = pygame.image.load("little-man-1.gif")
 
-
+bt = pygame.image.load("New Piskel (2).gif")
+bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
 
@@ -33,7 +34,7 @@ class Player():
 
 clock = pygame.time.Clock()
 window = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
-pygame.display.set_caption('Python is cool!')
+pygame.display.set_caption('fertalize a farm')
 window.fill((255, 255, 255))
 
 player = Player()  
@@ -49,8 +50,11 @@ while running==7:
 
     window.blit(background, (0, 0))
     window.blit(player.image, (player.x, player.y))
-    pygame.display.update()
 
+
+    window.blit(bt, (0, 0))
+    pygame.display.update()
+    
     clock.tick(60)  # limit FPS
 
     for event in pygame.event.get():
