@@ -66,7 +66,7 @@ while running==7:
 
     tex=fancyFont.render(f"{grape} grape seeds", True, (0,0,0))
     textRec=text.get_rect()
-    textRec.centerx=window.get_rect().centerx-145
+    textRec.centerx=window.get_rect().centerx-120
     textRec.centery=window.get_rect().centery-390
 
     timePassed = clock.tick(30)
