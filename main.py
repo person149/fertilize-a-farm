@@ -21,7 +21,7 @@ bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
-moneys=10
+moneys=5000
 basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
@@ -94,8 +94,7 @@ while running==7:
     window.blit(te, textRe)
     window.blit(bt, (0, 0))
     window.blit (t,textR)
-    if ss:
-       
+    if ss:  
         window.blit(sp, (200, 25))
         window.blit(cs, (260, 200))
         window.blit(gs, (260, 30))
@@ -123,10 +122,15 @@ while running==7:
             
             if bt.get_rect().collidepoint(event.pos):
                 ss = not ss 
-            elif gs.get_rect().collidepoint(event.pos) and moneys >= 10:
+            elif gs.get_rect().collidepoint(event.pos) and moneys >= 10 and ss:
                 moneys -= 10
                 grape += 1 
-                
+            elif chs.get_rect().collidepoint(event.pos) and moneys >= 2500 and ss:
+                moneys -= 2500
+                chikko += 1 
+            elif cs.get_rect().collidepoint(event.pos) and moneys >= 100 and ss:
+                moneys -= 100
+                cherry += 1 
 
     if player.x<=-18.0:
         player.x=-18.0
