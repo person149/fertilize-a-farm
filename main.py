@@ -5,12 +5,9 @@ pygame.init()
 pi = pygame.image.load("little-man-1.gif")
 
 ss = False
-
-
-money =10
-
-print ("$",money)
-
+grape=0
+cherry=0
+persimmon=0
 
 
 
@@ -24,6 +21,7 @@ WIDTH = 1000
 HEIGHT = 800
 moneys=10
 basicFont=pygame.font.SysFont(None,40)
+fancyFont=pygame.font.SysFont("Comic Sans MS", 40)
 running = 7
 
 class Player():
@@ -63,6 +61,12 @@ while running==7:
     textRect=text.get_rect()
     textRect.centerx=window.get_rect().centerx+-+-+400
     textRect.centery=window.get_rect().centery-+-+-+300
+
+    tex=fancyFont.render(f"{grape} grape seeds", True, (0,0,0), (0,0,255))
+    textRec=text.get_rect()
+    textRec.centerx=window.get_rect().centerx
+    textRec.centery=window.get_rect().centery-300
+
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
