@@ -5,7 +5,7 @@ pygame.init()
 pi = pygame.image.load("little-man-1.gif")
 
 sp = pygame.image.load("New Piskel (3).gif")
-sp = pygame.transform.scale(sp,(sp.get_width()*10,sp.get_height()*10))
+sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
 bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
@@ -55,9 +55,9 @@ while running==7:
 
 
     window.blit(bt, (0, 0))
-    pygame.display
+    
 
-     window.blit(sp, (0, 0))
+    window.blit(sp, (200, 25))
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
