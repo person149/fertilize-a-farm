@@ -21,7 +21,7 @@ WIDTH = 1000
 HEIGHT = 800
 moneys=10
 basicFont=pygame.font.SysFont(None,40)
-fancyFont=pygame.font.SysFont("Comic Sans MS", 40)
+fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
 
 class Player():
@@ -57,15 +57,15 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
-    text=basicFont.render(f"{moneys} moneys", True, (0,0,0), (255,255,0))
+    text=basicFont.render(f"{moneys} moneys", True, (0,0,0))
     textRect=text.get_rect()
     textRect.centerx=window.get_rect().centerx+-+-+400
     textRect.centery=window.get_rect().centery-+-+-+300
 
-    tex=fancyFont.render(f"{grape} grape seeds", True, (0,0,0), (0,0,255))
+    tex=fancyFont.render(f"{grape} grape seeds", True, (0,0,0))
     textRec=text.get_rect()
-    textRec.centerx=window.get_rect().centerx
-    textRec.centery=window.get_rect().centery-300
+    textRec.centerx=window.get_rect().centerx-145
+    textRec.centery=window.get_rect().centery-390
 
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
@@ -74,7 +74,7 @@ while running==7:
     window.blit(background, (0, 0))
     window.blit(player.image, (player.x, player.y))
     window.blit(text, textRect)
-
+    window.blit(tex, textRec)
     
     window.blit(bt, (0, 0))
     
@@ -105,7 +105,10 @@ while running==7:
             
             if bt.get_rect().collidepoint(event.pos):
                 ss = not ss 
-           
+    if player.x<=-18.0:
+        player.x=-18.0
+    if player.x>=954.0:
+        player.x=954.0
 
 pygame.quit()
 sys.exit()
