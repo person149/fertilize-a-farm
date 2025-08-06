@@ -9,8 +9,10 @@ grape=0
 cherry=0
 persimmon=0
 
-
-
+chs = pygame.image.load("chikoo.gif")
+chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
+cs = pygame.image.load("cherry.gif")
+cs = pygame.transform.scale(cs,(cs.get_width()*15,cs.get_height()*5))
 gs = pygame.image.load("grape.gif")
 gs = pygame.transform.scale(gs,(gs.get_width()*15,gs.get_height()*5))
 sp = pygame.image.load("New Piskel (3).gif")
@@ -79,8 +81,11 @@ while running==7:
     window.blit(bt, (0, 0))
     
     if ss:
+       
         window.blit(sp, (200, 25))
+        window.blit(cs, (260, 200))
         window.blit(gs, (260, 30))
+        window.blit(chs, (260, 350))
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
@@ -105,6 +110,14 @@ while running==7:
             
             if bt.get_rect().collidepoint(event.pos):
                 ss = not ss 
+            elif gs.get_rect().collidepoint(event.pos):
+                moneys -= 10
+                if moneys <0:
+                    moneys += 10
+            if moneys == 10:
+            
+
+
     if player.x<=-18.0:
         player.x=-18.0
     if player.x>=954.0:
