@@ -106,9 +106,13 @@ while running==7:
             
             if bt.get_rect().collidepoint(event.pos):
                 ss = not ss 
-        elif event.typr == MOUSEBUTTONDOWN:
-            if gs = MOUSEBUTTONDOWN:
-                moneys = moneys - 10
+            if gs.get_rect().collidepoint(event.pos):
+                moneys -= 10
+                if moneys <0:
+                    text=basicFont.render("you are broke get more money", True, (0,0,0), (255,0,0))
+                    textRect=text.get_rect()
+                    textRect.centerx=window.get_rect().centerx+-+-+400
+                    textRect.centery=window.get_rect().centery-+-+-+300
            
 
 pygame.quit()
