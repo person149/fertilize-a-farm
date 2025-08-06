@@ -7,6 +7,15 @@ pi = pygame.image.load("little-man-1.gif")
 ss = False
 
 
+money =10
+
+print ("$",money)
+
+
+
+
+gs = pygame.image.load("grape.gif")
+gs = pygame.transform.scale(gs,(gs.get_width()*15,gs.get_height()*5))
 sp = pygame.image.load("New Piskel (3).gif")
 sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
 bt = pygame.image.load("New Piskel (2).gif")
@@ -56,24 +65,26 @@ while running==7:
     window.blit(background, (0, 0))
     window.blit(player.image, (player.x, player.y))
 
-
+    
     window.blit(bt, (0, 0))
     
     if ss:
         window.blit(sp, (200, 25))
+        window.blit(gs, (260, 30))
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
 
     for event in pygame.event.get():
+        
         if event.type == QUIT:
             running = False
         elif event.type == KEYDOWN:
-            if event.key == K_RIGHT:
+            if event.key == K_RIGHT and player.x<954.0:
                 if not player.facing:
                     player.flip()   
                 player.move = player.speed
-            elif event.key == K_LEFT and player.x>=-18.0:
+            elif event.key == K_LEFT and player.x>-18.0:
                 if  player.facing:
                     player.flip()
                 player.move = -player.speed
@@ -84,6 +95,7 @@ while running==7:
             
             if bt.get_rect().collidepoint(event.pos):
                 ss = not ss 
+           
 
 pygame.quit()
 sys.exit()
