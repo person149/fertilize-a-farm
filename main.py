@@ -6,6 +6,7 @@ pi = pygame.image.load("little-man-1.gif")
 
 ss = False
 
+ 
 
 money =10
 
@@ -27,6 +28,8 @@ HEIGHT = 800
 moneys=10
 basicFont=pygame.font.SysFont(None,40)
 running = 7
+
+
 
 class Player():
     def __init__(self):
@@ -110,7 +113,8 @@ while running==7:
                 moneys -= 10
                 if moneys <0:
                     moneys += 10
-            if moneys == 10:
+            
+                
             
 
 
