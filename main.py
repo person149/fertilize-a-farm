@@ -8,7 +8,7 @@ ss = False
 grape=0
 cherry=0
 chikoo=0
-
+AndrewGettingFiredSoon=True
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
 cs = pygame.image.load("cherry.gif")
@@ -61,6 +61,8 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
+    if AndrewGettingFiredSoon:
+        None
     text=basicFont.render(f"{moneys} moneys", True, (0,0,0))
     textRect=text.get_rect()
     textRect.centerx=window.get_rect().centerx+-+-+400
@@ -71,6 +73,11 @@ while running==7:
     textRec.centerx=window.get_rect().centerx-120
     textRec.centery=window.get_rect().centery-390
 
+    te=fancyFont.render(f"{cherry} cherry seeds", True, (0,0,0))
+    textRe=text.get_rect()
+    textRe.centerx=window.get_rect().centerx-120
+    textRe.centery=window.get_rect().centery-370
+
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
@@ -79,7 +86,7 @@ while running==7:
     window.blit(player.image, (player.x, player.y))
     window.blit(text, textRect)
     window.blit(tex, textRec)
-    
+    window.blit(te, textRe)
     window.blit(bt, (0, 0))
     
     if ss:
@@ -91,7 +98,6 @@ while running==7:
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
-
     for event in pygame.event.get():
         
         if event.type == QUIT:
