@@ -5,13 +5,9 @@ pygame.init()
 pi = pygame.image.load("little-man-1.gif")
 
 ss = False
-
- 
-
-money =10
-
-print ("$",money)
-
+grape=0
+cherry=0
+chikoo=0
 
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
@@ -27,6 +23,7 @@ WIDTH = 1000
 HEIGHT = 800
 moneys=10
 basicFont=pygame.font.SysFont(None,40)
+fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
 
 
@@ -64,10 +61,16 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
-    text=basicFont.render(f"{moneys} moneys", True, (0,0,0), (255,255,0))
+    text=basicFont.render(f"{moneys} moneys", True, (0,0,0))
     textRect=text.get_rect()
     textRect.centerx=window.get_rect().centerx+-+-+400
     textRect.centery=window.get_rect().centery-+-+-+300
+
+    tex=fancyFont.render(f"{grape} grape seeds", True, (0,0,0))
+    textRec=text.get_rect()
+    textRec.centerx=window.get_rect().centerx-120
+    textRec.centery=window.get_rect().centery-390
+
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
@@ -75,7 +78,7 @@ while running==7:
     window.blit(background, (0, 0))
     window.blit(player.image, (player.x, player.y))
     window.blit(text, textRect)
-
+    window.blit(tex, textRec)
     
     window.blit(bt, (0, 0))
     
@@ -113,11 +116,14 @@ while running==7:
                 moneys -= 10
                 if moneys <0:
                     moneys += 10
-            
-                
-            
+            if moneys == 10:
+                None
 
 
+    if player.x<=-18.0:
+        player.x=-18.0
+    if player.x>=954.0:
+        player.x=954.0
 
 pygame.quit()
 sys.exit()
