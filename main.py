@@ -4,14 +4,14 @@ pygame.init()
 #from piskel
 pi = pygame.image.load("little-man-1.gif")
 
-sp = pygame.image.load("New Piskel (3).gif")
-sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
+#sp = pygame.image.load("New Piskel (3).gif")
+#sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
 bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
 moneys=10
-basicFont=pygame.font.SysFont(None,10)
+basicFont=pygame.font.SysFont(None,40)
 running = 7
 
 class Player():
@@ -47,22 +47,23 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
-    text=basicFont.render(f"{moneys}", True, (0,0,0), (0,0,255))
-    # textRect=text.get_rect()
-    # textRect.centerx=window.get_rect().centerx
-    # textRect.centery=window.get_rect().centery
+    text=basicFont.render(f"{moneys} moneys", True, (0,0,0), (255,255,0))
+    textRect=text.get_rect()
+    textRect.centerx=window.get_rect().centerx+-+-+400
+    textRect.centery=window.get_rect().centery-+-+-+300
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
 
     window.blit(background, (0, 0))
     window.blit(player.image, (player.x, player.y))
+    window.blit(text, textRect)
 
 
     window.blit(bt, (0, 0))
     
 
-    window.blit(sp, (200, 25))
+    # window.blit(sp, (200, 25))
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
