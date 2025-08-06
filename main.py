@@ -10,7 +10,8 @@ bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
-
+moneys=10
+basicFont=pygame.font.SysFont(None,10)
 running = 7
 
 class Player():
@@ -46,6 +47,10 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
+    text=basicFont.render(f"{moneys}", True, (0,0,0), (0,0,255))
+    # textRect=text.get_rect()
+    # textRect.centerx=window.get_rect().centerx
+    # textRect.centery=window.get_rect().centery
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
