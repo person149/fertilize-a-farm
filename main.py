@@ -82,11 +82,5 @@ while running==7:
             player.x=-18.0
         if player.x>=954.0:
             player.x=954.0
-    print(player.x)
 pygame.quit()
 sys.exit()
-
-
-
-
-
