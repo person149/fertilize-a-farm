@@ -7,7 +7,7 @@ pi = pygame.image.load("little-man-1.gif")
 ss = False
 grape=0
 cherry=0
-persimmon=0
+chikoo=0
 
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
@@ -115,7 +115,7 @@ while running==7:
                 if moneys <0:
                     moneys += 10
             if moneys == 10:
-            
+                None
 
 
     if player.x<=-18.0:
