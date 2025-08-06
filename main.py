@@ -1,11 +1,23 @@
 import pygame, sys
-from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP 
+from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP, MOUSEBUTTONDOWN
 pygame.init()
 #from piskel
 pi = pygame.image.load("little-man-1.gif")
 
-#sp = pygame.image.load("New Piskel (3).gif")
-#sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
+ss = False
+
+
+money =10
+
+print ("$",money)
+
+
+
+
+gs = pygame.image.load("grape.gif")
+gs = pygame.transform.scale(gs,(gs.get_width()*15,gs.get_height()*5))
+sp = pygame.image.load("New Piskel (3).gif")
+sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
 bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
@@ -59,11 +71,12 @@ while running==7:
     window.blit(player.image, (player.x, player.y))
     window.blit(text, textRect)
 
-
+    
     window.blit(bt, (0, 0))
     
-
-    # window.blit(sp, (200, 25))
+    if ss:
+        window.blit(sp, (200, 25))
+        window.blit(gs, (260, 30))
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
@@ -84,9 +97,15 @@ while running==7:
         elif event.type == KEYUP:
             if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
                 player.move = 0
-        if player.x<=-18.0:
-            player.x=-18.0
-        if player.x>=954.0:
-            player.x=954.0
+        elif event.type == MOUSEBUTTONDOWN:
+            
+            if bt.get_rect().collidepoint(event.pos):
+                ss = not ss 
+           
+
 pygame.quit()
 sys.exit()
+
+
+
+
