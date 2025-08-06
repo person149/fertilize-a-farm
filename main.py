@@ -26,6 +26,8 @@ basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
 
+
+
 class Player():
     def __init__(self):
         self.facing = False 
@@ -121,13 +123,10 @@ while running==7:
             
             if bt.get_rect().collidepoint(event.pos):
                 ss = not ss 
-            elif gs.get_rect().collidepoint(event.pos):
+            elif gs.get_rect().collidepoint(event.pos) and moneys >= 10:
                 moneys -= 10
-                if moneys <0:
-                    moneys += 10
-            if moneys == 10:
-                None
-
+                grape += 1 
+                
 
     if player.x<=-18.0:
         player.x=-18.0
