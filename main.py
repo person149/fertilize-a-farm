@@ -76,6 +76,11 @@ while running==7:
     textRe.centerx=window.get_rect().centerx-120
     textRe.centery=window.get_rect().centery-370
 
+    t=fancyFont.render(f"{chikoo} chikoo seeds", True, (0,0,0))
+    textR=text.get_rect()
+    textR.centerx=window.get_rect().centerx-120
+    textR.centery=window.get_rect().centery-350
+
     timePassed = clock.tick(30)
     timeSec = timePassed / 1000.0
     player.x += player.move * timeSec
@@ -86,7 +91,7 @@ while running==7:
     window.blit(tex, textRec)
     window.blit(te, textRe)
     window.blit(bt, (0, 0))
-    
+    window.blit (t,textR)
     if ss:
        
         window.blit(sp, (200, 25))
@@ -132,6 +137,6 @@ while running==7:
 pygame.quit()
 sys.exit()
 
-
+window.blit(t,textR)
 
 
