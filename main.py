@@ -58,21 +58,26 @@ while running==7:
     clock.tick(60)  # limit FPS
 
     for event in pygame.event.get():
+        
         if event.type == QUIT:
             running = False
         elif event.type == KEYDOWN:
-            if event.key == K_RIGHT:
+            if event.key == K_RIGHT and player.x<954.0:
                 if not player.facing:
                     player.flip()   
                 player.move = player.speed
-            elif event.key == K_LEFT and player.x>=-18.0:
+            elif event.key == K_LEFT and player.x>-18.0:
                 if  player.facing:
                     player.flip()
                 player.move = -player.speed
         elif event.type == KEYUP:
             if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
                 player.move = 0
-                print(player.x)
+        if player.x<=-18.0:
+            player.x=-18.0
+        if player.x>=954.0:
+            player.x=954.0
+    print(player.x)
 pygame.quit()
 sys.exit()
 
