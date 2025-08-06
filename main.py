@@ -1,8 +1,11 @@
 import pygame, sys
-from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP 
+from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP, MOUSEBUTTONDOWN
 pygame.init()
 #from piskel
 pi = pygame.image.load("little-man-1.gif")
+
+ss = False
+
 
 sp = pygame.image.load("New Piskel (3).gif")
 sp = pygame.transform.scale(sp,(sp.get_width()*20,sp.get_height()*20))
@@ -56,8 +59,8 @@ while running==7:
 
     window.blit(bt, (0, 0))
     
-
-    window.blit(sp, (200, 25))
+    if ss:
+        window.blit(sp, (200, 25))
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
@@ -77,10 +80,13 @@ while running==7:
         elif event.type == KEYUP:
             if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
                 player.move = 0
-                print(player.x)
+        elif event.type == MOUSEBUTTONDOWN:
+            
+            if bt.get_rect().collidepoint(event.pos):
+                ss = not ss 
+
 pygame.quit()
 sys.exit()
-
 
 
 
