@@ -8,6 +8,7 @@ ss = False
 grape=0
 cherry=0
 chikoo=0
+AndrewGettingFiredSoon=True
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
 cs = pygame.image.load("cherry.gif")
@@ -113,7 +114,7 @@ while running==7:
                     player.flip()
                 player.move = -player.speed
         elif event.type == KEYUP:
-            if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
+            if event.key in (K_LEFT, K_RIGHT): 
                 player.move = 0
         elif event.type == MOUSEBUTTONDOWN:
             
@@ -123,11 +124,11 @@ while running==7:
                 moneys -= 10
                 grape += 1 
             elif chs.get_rect().collidepoint(event.pos) and moneys >= 2500 and ss:
-                moneys -= 2500
+                moneys -= 250-0
                 chikoo += 1 
             elif cs.get_rect().collidepoint(event.pos) and moneys >= 100 and ss:
                 moneys -= 100
-                cherry += 1 
+                cherry += 1                
 
     if player.x<=-18.0:
         player.x=-18.0
