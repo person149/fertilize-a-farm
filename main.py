@@ -1,13 +1,16 @@
-import pygame, sys
+import pygame, sys,gif_pygame
 from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP, MOUSEBUTTONDOWN, K_1, K_2, K_3
 pygame.init()
 #from piskel
 pi = pygame.image.load("little-man-1.gif")
-
+cherys=gif_pygame.load("cherys guy.gif")
+gif_pygame.transform.scale(cherys,(cherys.get_width()*4,cherys.get_height()*4))
+grapevine=gif_pygame.load("grape vine (1).gif")
 ss = False
+cherryLocations=[]
 seletedSeed="grape"
-grape=0
-cherry=0
+grape=1
+cherry=255
 chikoo=0
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
@@ -21,7 +24,7 @@ bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
-moneys= 5000
+moneys= 100
 basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
@@ -97,13 +100,14 @@ while running==7:
     window.blit(te, textRe)
     window.blit(bt,bt_rect)
     window.blit (t,textR)
+    for pos in cherryLocations:
+        cherys.render(window, pos)
     if ss:  
         window.blit(sp,sp_rect)
         window.blit(cs,cs_rect)
         window.blit(gs,gs_rect)
         window.blit(chs,chs_rect)
     pygame.display.update()
-    
     clock.tick(60)  # limit FPS
     for event in pygame.event.get():
         
@@ -118,17 +122,18 @@ while running==7:
                 if  player.facing:
                     player.flip()
                 player.move = -player.speed
+            elif event.key==K_1:
+                seletedSeed="grape"
+            elif event.key==K_2:
+                seletedSeed="cherry"
+            elif event.key==K_3:
+                seletedSeed="chikoo"
         elif event.type == KEYUP:
             if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
                 player.move = 0
-        elif event.type==K_1:
-            seletedSeed="grape"
-        elif event.type==K_2:
-            seletedSeed="cherry"
-        elif event.type==K_3:
-            seletedSeed="chikoo"
         elif event.type == MOUSEBUTTONDOWN:
-            
+            mouseX = pygame.mouse.get_pos()[0]
+            mouseY = pygame.mouse.get_pos()[1]
             if bt_rect.collidepoint(event.pos):
                 ss = not ss 
             elif gs_rect.collidepoint(event.pos) and moneys >= 10 and ss:
@@ -140,7 +145,12 @@ while running==7:
             elif cs_rect.collidepoint(event.pos) and moneys >= 100 and ss:
                 moneys -= 100
                 cherry += 1 
-
+            elif mouseY > 625 and cherry>0 and seletedSeed=="cherry":
+                cherryLocations.append((mouseX-50, mouseY-126))
+                cherry-=1
+            elif mouseY > 625 and cherry>0 and seletedSeed=="cherry":
+                cherryLocations.append((mouseX-50, mouseY-126))
+                cherry-=1
     if player.x<=-18.0:
         player.x=-18.0
     if player.x>=954.0:
