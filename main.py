@@ -25,7 +25,7 @@ moneys= 5000
 basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
-
+grapes = pygame.
 
 bt_rect=bt.get_rect(topleft=(0,0))
 sp_rect=sp.get_rect(topleft=(200,25))
