@@ -8,6 +8,8 @@ gif_pygame.transform.scale(cherys,(cherys.get_width()*4,cherys.get_height()*4))
 grapevine=gif_pygame.load("grape vine (1).gif")
 ss = False
 cherryLocations=[]
+grapeLocations=[]
+chikooLocations=[]
 seletedSeed="grape"
 grape=1
 cherry=255
@@ -28,7 +30,6 @@ moneys= 100
 basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
-grapes = pygame.
 
 bt_rect=bt.get_rect(topleft=(0,0))
 sp_rect=sp.get_rect(topleft=(200,25))
@@ -102,6 +103,8 @@ while running==7:
     window.blit (t,textR)
     for pos in cherryLocations:
         cherys.render(window, pos)
+    for pos in grapeLocations:
+        grapevine.render(window, pos)
     if ss:  
         window.blit(sp,sp_rect)
         window.blit(cs,cs_rect)
@@ -148,9 +151,9 @@ while running==7:
             elif mouseY > 625 and cherry>0 and seletedSeed=="cherry":
                 cherryLocations.append((mouseX-50, mouseY-126))
                 cherry-=1
-            elif mouseY > 625 and cherry>0 and seletedSeed=="cherry":
-                cherryLocations.append((mouseX-50, mouseY-126))
-                cherry-=1
+            elif mouseY > 625 and grape>0 and seletedSeed=="grape":
+                grapeLocations.append((mouseX-10, mouseY-25))
+                grape-=1
     if player.x<=-18.0:
         player.x=-18.0
     if player.x>=954.0:
