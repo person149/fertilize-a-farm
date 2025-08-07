@@ -8,7 +8,6 @@ ss = False
 grape=0
 cherry=0
 chikoo=0
-AndrewGettingFiredSoon=True
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
 cs = pygame.image.load("cherry.gif")
@@ -61,6 +60,8 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
+    if AndrewGettingFiredSoon:
+        None
     text=basicFont.render(f"{moneys} moneys", True, (0,0,0))
     textRect=text.get_rect()
     textRect.centerx=window.get_rect().centerx+-+-+400
