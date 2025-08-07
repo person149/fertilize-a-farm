@@ -61,8 +61,6 @@ background = pygame.image.load ("New Piskel.gif")
 background = pygame.transform.scale(background,(WIDTH,HEIGHT))
 
 while running==7:
-    if AndrewGettingFiredSoon:
-        None
     text=basicFont.render(f"{moneys} moneys", True, (0,0,0))
     textRect=text.get_rect()
     textRect.centerx=window.get_rect().centerx+-+-+400
