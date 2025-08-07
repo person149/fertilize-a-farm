@@ -1,10 +1,11 @@
 import pygame, sys
-from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP, MOUSEBUTTONDOWN
+from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP, MOUSEBUTTONDOWN, K_1, K_2, K_3
 pygame.init()
 #from piskel
 pi = pygame.image.load("little-man-1.gif")
 
 ss = False
+seletedSeed="grape"
 grape=0
 cherry=0
 chikoo=0
@@ -70,17 +71,17 @@ while running==7:
     textRect.centerx=window.get_rect().centerx+-+-+400
     textRect.centery=window.get_rect().centery-+-+-+300
 
-    tex=fancyFont.render(f"{grape} grape seeds", True, (0,0,0))
+    tex=fancyFont.render(f"{grape} grape seeds-1", True, (0,0,0))
     textRec=text.get_rect()
     textRec.centerx=window.get_rect().centerx-120
     textRec.centery=window.get_rect().centery-390
 
-    te=fancyFont.render(f"{cherry} cherry seeds", True, (0,0,0))
+    te=fancyFont.render(f"{cherry} cherry seeds-2", True, (0,0,0))
     textRe=text.get_rect()
     textRe.centerx=window.get_rect().centerx-120
     textRe.centery=window.get_rect().centery-370
 
-    t=fancyFont.render(f"{chikoo} chikoo seeds", True, (0,0,0))
+    t=fancyFont.render(f"{chikoo} chikoo seeds-3", True, (0,0,0))
     textR=text.get_rect()
     textR.centerx=window.get_rect().centerx-120
     textR.centery=window.get_rect().centery-350
@@ -120,6 +121,12 @@ while running==7:
         elif event.type == KEYUP:
             if event.key in (K_LEFT, K_RIGHT):  # Fixed condition here too
                 player.move = 0
+        elif event.type==K_1:
+            seletedSeed="grape"
+        elif event.type==K_2:
+            seletedSeed="cherry"
+        elif event.type==K_3:
+            seletedSeed="chikoo"
         elif event.type == MOUSEBUTTONDOWN:
             
             if bt_rect.collidepoint(event.pos):
