@@ -166,8 +166,8 @@ while running==7:
                 chikoo-=1
         elif event.type==timer:
             moneys+=len(grapeLocations)
-            moneys+=len(cherryLocations)*15
-            moneys+=len(chikooLocations)*50
+            moneys+=len(cherryLocations)*12
+            moneys+=len(chikooLocations)*350
     if player.x<=-18.0:
         player.x=-18.0
     if player.x>=954.0:
