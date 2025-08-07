@@ -82,17 +82,17 @@ while running==7:
 
     tex=fancyFont.render(f"{grape} grape seeds-1", True, (0,0,0))
     textRec=text.get_rect()
-    textRec.centerx=window.get_rect().centerx-120
+    textRec.centerx=window.get_rect().centerx-90
     textRec.centery=window.get_rect().centery-390
 
     te=fancyFont.render(f"{cherry} cherry seeds-2", True, (0,0,0))
     textRe=text.get_rect()
-    textRe.centerx=window.get_rect().centerx-120
+    textRe.centerx=window.get_rect().centerx-90
     textRe.centery=window.get_rect().centery-370
 
     t=fancyFont.render(f"{chikoo} chikoo seeds-3", True, (0,0,0))
     textR=text.get_rect()
-    textR.centerx=window.get_rect().centerx-120
+    textR.centerx=window.get_rect().centerx-90
     textR.centery=window.get_rect().centery-350
 
     timePassed = clock.tick(30)
