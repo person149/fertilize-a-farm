@@ -2,6 +2,8 @@ import pygame, sys,gif_pygame
 from pygame.locals import QUIT, KEYDOWN, K_RIGHT, K_LEFT, KEYUP, MOUSEBUTTONDOWN, K_1, K_2, K_3
 pygame.init()
 #from piskel
+timer=pygame.USEREVENT+1
+pygame.time.set_timer(timer, 1000)
 pi = pygame.image.load("little-man-1.gif")
 cherys=gif_pygame.load("cherys guy.gif")
 gif_pygame.transform.scale(cherys,(cherys.get_width()*4,cherys.get_height()*4))
@@ -14,9 +16,9 @@ cherryLocations=[]
 grapeLocations=[]
 chikooLocations=[]
 seletedSeed="grape"
-grape=255
-cherry=255
-chikoo=125
+grape=1
+cherry=0
+chikoo=0
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
 cs = pygame.image.load("cherry.gif")
@@ -29,7 +31,7 @@ bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
-moneys= 100
+moneys= 0
 basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
@@ -162,6 +164,10 @@ while running==7:
             elif mouseY > 625 and chikoo>0 and seletedSeed=="chikoo":
                 chikooLocations.append((mouseX-40, mouseY-125))
                 chikoo-=1
+        elif event.type==timer:
+            moneys+=len(grapeLocations)
+            moneys+=len(cherryLocations)*15
+            moneys+=len(chikooLocations)*50
     if player.x<=-18.0:
         player.x=-18.0
     if player.x>=954.0:
