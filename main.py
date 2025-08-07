@@ -20,12 +20,17 @@ bt = pygame.image.load("New Piskel (2).gif")
 bt = pygame.transform.scale(bt,(bt.get_width()*10,bt.get_height()*10))
 WIDTH = 1000
 HEIGHT = 800
-moneys=5000
+moneys=10
 basicFont=pygame.font.SysFont(None,40)
 fancyFont=pygame.font.SysFont("Comic Sans MS", 20)
 running = 7
 
 
+bt_rect=bt.get_rect(topleft=(0,0))
+sp_rect=sp.get_rect(topleft=(200,25))
+cs_rect=cs.get_rect(topleft=(260,200))
+gs_rect=gs.get_rect(topleft=(260,30))
+chs_rect=chs.get_rect(topleft=(260,350))
 
 class Player():
     def __init__(self):
@@ -89,13 +94,13 @@ while running==7:
     window.blit(text, textRect)
     window.blit(tex, textRec)
     window.blit(te, textRe)
-    window.blit(bt, (0, 0))
+    window.blit(bt,bt_rect)
     window.blit (t,textR)
     if ss:  
-        window.blit(sp, (200, 25))
-        window.blit(cs, (260, 200))
-        window.blit(gs, (260, 30))
-        window.blit(chs, (260, 350))
+        window.blit(sp,sp_rect)
+        window.blit(cs,cs_rect)
+        window.blit(gs,gs_rect)
+        window.blit(chs,chs_rect)
     pygame.display.update()
     
     clock.tick(60)  # limit FPS
@@ -117,15 +122,15 @@ while running==7:
                 player.move = 0
         elif event.type == MOUSEBUTTONDOWN:
             
-            if bt.get_rect().collidepoint(event.pos):
+            if bt_rect.collidepoint(event.pos):
                 ss = not ss 
-            elif gs.get_rect().collidepoint(event.pos) and moneys >= 10 and ss:
+            elif gs_rect.collidepoint(event.pos) and moneys >= 10 and ss:
                 moneys -= 10
                 grape += 1 
-            elif chs.get_rect().collidepoint(event.pos) and moneys >= 2500 and ss:
+            elif chs_rect.collidepoint(event.pos) and moneys >= 2500 and ss:
                 moneys -= 2500
-                chikko += 1 
-            elif cs.get_rect().collidepoint(event.pos) and moneys >= 100 and ss:
+                chikoo += 1 
+            elif cs_rect.collidepoint(event.pos) and moneys >= 100 and ss:
                 moneys -= 100
                 cherry += 1 
 
