@@ -6,14 +6,17 @@ pi = pygame.image.load("little-man-1.gif")
 cherys=gif_pygame.load("cherys guy.gif")
 gif_pygame.transform.scale(cherys,(cherys.get_width()*4,cherys.get_height()*4))
 grapevine=gif_pygame.load("grape vine (1).gif")
+gif_pygame.transform.scale(grapevine,(grapevine.get_width()*4,grapevine.get_height()*4))
+chikootree=gif_pygame.load("chikoo (2).gif")
+gif_pygame.transform.scale(chikootree,(chikootree.get_width()*4,chikootree.get_height()*4))
 ss = False
 cherryLocations=[]
 grapeLocations=[]
 chikooLocations=[]
 seletedSeed="grape"
-grape=1
+grape=255
 cherry=255
-chikoo=0
+chikoo=125
 chs = pygame.image.load("chikoo.gif")
 chs = pygame.transform.scale(chs,(chs.get_width()*15,chs.get_height()*7))
 cs = pygame.image.load("cherry.gif")
@@ -105,6 +108,8 @@ while running==7:
         cherys.render(window, pos)
     for pos in grapeLocations:
         grapevine.render(window, pos)
+    for pos in chikooLocations:
+        chikootree.render(window, pos)
     if ss:  
         window.blit(sp,sp_rect)
         window.blit(cs,cs_rect)
@@ -152,8 +157,11 @@ while running==7:
                 cherryLocations.append((mouseX-50, mouseY-126))
                 cherry-=1
             elif mouseY > 625 and grape>0 and seletedSeed=="grape":
-                grapeLocations.append((mouseX-10, mouseY-25))
+                grapeLocations.append((mouseX-54, mouseY-126))
                 grape-=1
+            elif mouseY > 625 and chikoo>0 and seletedSeed=="chikoo":
+                chikooLocations.append((mouseX-40, mouseY-125))
+                chikoo-=1
     if player.x<=-18.0:
         player.x=-18.0
     if player.x>=954.0:
